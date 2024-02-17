@@ -1,0 +1,71 @@
+﻿Product Sites
+-------------
+http://www.launchdigital.net/product-view2.aspx?t=28&ContentId=46
+http://www.launchdigital.net/video.aspx?t=46
+
+Specification
+-------------
+Sensor type       : Uncooled Vanadium Oxide(VOx)
+Array fformat     : 256x192
+Spectral Range    : 7.5 ~ 13.5 um
+FOV               : 25 deg x 18 deg
+Power             : 5V DC / 2.5W
+Storage Temp      : -20 degC ~ 60 degC
+Working Temp      : 3 degC ~ 45 degC
+Measurement Range : -20 degC ~ 550 degC
+
+Product Model
+-------------
+AS20
+
+Product Clone
+-------------
+SunShine TB03S
+
+Ios App
+-------
+https://apps.apple.com/cn/app/shortcam-lite/id6453023698
+
+Fcc
+---
+https://fccid.io/2BCVJ-LC-AS20/
+https://fcc.report/FCC-ID/2bcvjlcas20/
+
+Network Structure
+-----------------
+The device could be access from usb or wifi.
+When access from USB its using RNDIS.
+
+Ethernet (RNDIS):
+ipv4: 192.168.10.100
+The device found on 192.168.10.19
+
+Wifi:
+ipv4: 192.168.0.10
+The device found on 192.168.0.254
+
+Nmap 192.168.10.19:
+21/tcp   open  ftp
+23/tcp   open  telnet
+80/tcp   open  http
+554/tcp  open  rtsp
+3000/tcp open  ppp
+3001/tcp open  nessus
+
+The api could be access from 192.168.0.254:80 or 192.168.10.19:80
+Use shortcam_lite.paw to try the api.
+
+The app will access the api to get the rtsp url (basically the 554 port).
+Then open image via rtsp using vlc.
+The mode such as rainbow, etc, are controlled via the api.
+
+MacOS
+-----
+Unfortunately there are no app native in macos.
+But we could use wifi to connect to the network.
+Or install rndis for macos (HoRNDIS).
+For RNDIS we need to manually set the ip to 192.168.10.100.
+With mask 255.255.255.0.
+If necessary put the route / gateway as 192.168.10.1.
+The device is always on 192.168.10.19
+Then open the image using vlc.
